@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  ssh-log-to-influx:
+    image: acouvreur/ssh-log-to-influx
+    build: ./
+    restart: always
+    environment:
+      - INFLUX_URL=influxdb
+      - INFLUX_DB=geoloc
+      - INFLUX_USER
+      - INFLUX_PWD
+    ports:
+      - 7070:7070/tcp
